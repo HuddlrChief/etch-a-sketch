@@ -14,20 +14,21 @@ for (let x = 0; x < 256; x++) {
 
 topButton.addEventListener("click", (e) =>{
     let sides = Number(window.prompt("Number of squares per side:"))
-    let finalSides = Math.max(sides, 100);
+    let finalSides = Math.min(sides, 100);
     createNewGrid(finalSides);
 })
 
-
 function createNewGrid(sides) {
-    bottomContainer.remove();
     for (let x = 0; x < sides; x++) {
+        const newRow = document.createElement("div");
+        newRow.classList.add("newRow");
         for (let y = 0; y < sides; y++) {
             const div = document.createElement("div");
             div.textContent = "div"
             div.classList.add("gridBox");
-            bottomContainer.appendChild(div);
+            newRow.appendChild(div);
             }
+        bottomContainer.appendChild(newRow)
         }  
 }
 
