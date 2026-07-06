@@ -1,14 +1,23 @@
 const topButton = document.createElement("button");
 const topContainer = document.querySelector("#top-container");
 topButton.innerText = "Refresh square"
+topContainer.appendChild(topButton);
+
+const bottomContainer = document.querySelector("#bottom-container");
+
+for (let x = 0; x < 256; x++) {
+        const div = document.createElement("div");
+        div.textContent = "div"
+        div.classList.add("gridBox");
+        bottomContainer.appendChild(div);
+        }
+
 topButton.addEventListener("click", (e) =>{
     let sides = Number(window.prompt("Number of squares per side:"))
     let finalSides = Math.max(sides, 100);
     createNewGrid(finalSides);
 })
-topContainer.appendChild(topButton);
 
-const bottomContainer = document.querySelector("#bottom-container");
 
 function createNewGrid(sides) {
     bottomContainer.remove();
