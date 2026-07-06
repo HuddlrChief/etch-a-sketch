@@ -19,6 +19,7 @@ topButton.addEventListener("click", (e) =>{
 })
 
 function createNewGrid(sides) {
+    bottomContainer.replaceChildren();
     for (let x = 0; x < sides; x++) {
         const newRow = document.createElement("div");
         newRow.classList.add("newRow");
