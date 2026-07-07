@@ -5,31 +5,36 @@ topContainer.appendChild(topButton);
 
 const bottomContainer = document.querySelector("#bottom-container");
 
-for (let x = 0; x < 256; x++) {
+for (let x = 0; x < 16; x++) {
+    const newRow = document.createElement("div");
+    newRow.classList.add("newRow");
+    bottomContainer.appendChild(newRow);
+    for (let y = 0; y < 16; y++) {
         const div = document.createElement("div");
-        div.textContent = "div"
+        div.textContent = "div";
         div.classList.add("gridBox");
-        bottomContainer.appendChild(div);
+        newRow.appendChild(div);
         }
+    }  
 
 topButton.addEventListener("click", (e) =>{
-    let sides = Number(window.prompt("Number of squares per side:"))
-    let finalSides = Math.min(sides, 100);
-    createNewGrid(finalSides);
+    createNewGrid();
 })
 
-function createNewGrid(sides) {
+function createNewGrid() {
+    let userSides = Number(window.prompt("Number of squares per side:"));
+    let finalSides = Math.min(userSides, 100);
     bottomContainer.replaceChildren();
-    for (let x = 0; x < sides; x++) {
-        const newRow = document.createElement("div");
-        newRow.classList.add("newRow");
-        for (let y = 0; y < sides; y++) {
+    const newRow = document.createElement("div");
+    newRow.classList.add("newRow");
+    bottomContainer.appendChild(newRow);
+    for (let x = 0; x < finalSides; x++) {
+        for (let y = 0; y < finalSides; y++) {
             const div = document.createElement("div");
-            div.textContent = "div"
+            div.textContent = "div";
             div.classList.add("gridBox");
-            newRow.appendChild(div);
+            bottomContainer.appendChild(div);
             }
-        bottomContainer.appendChild(newRow)
         }  
 }
 
